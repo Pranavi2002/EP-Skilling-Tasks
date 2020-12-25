@@ -1,3 +1,4 @@
+######## without action #########
 <html>
 <title>Demo Page</title>
 <body>
@@ -13,5 +14,29 @@
 </body>
 </html>
 
+########### with action ############
+<title>Registration Page</title>
+<body>
+<form action="registration" method="post">
+<table align="center">
+<h1><tr><td>Student Registration Form</td><br></tr></h1>
+<tr><td>Name of the student:</td><td><input type="text" name="student"><br></td></tr>
+<tr><td>Reg no:</td><td><input type="text" name="regno"><br></td></tr>
+<tr><td>Email ID:</td><td><input type="text" name="email"><br></td></tr>
+<tr><td>Favourite Game:</td><td><input type="checkbox" name="game1" value="cricket"><label for="game1"> Cricket</label><input type="checkbox" name="game2" value="football"><label for="game2"> Football</label><input type="checkbox" name="game3" value="chess"><label for="game3"> Chess</label><br></td></tr>
+<tr><td>Gender:</td><td><input type="radio" name="gender" value="male"><label for="male">Male</label><input type="radio" name="gender value=""female"><label for="female">Female</label><br></td></tr>
+<tr><td>Favourite Subjects:</td><td><label for="subject">Choose a favourite subject:</label>
+<select name="subject" id="subject">
+  <option value="Select">Select</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="Python">Python</option></select><br></td></tr>
+<tr><td>Address:</td><td><textarea name="address" form="addressform"></textarea><br></td></tr>
+<tr><td><input type="submit" value="Register"></td></tr>
+</table>
+</form>
+</body>
+</html>
 
 
