@@ -1,8 +1,3 @@
-body{
-background-color:pink;
-}
-
-----------------------------------------------------------------
 h1.a{
 background-color:yellow;
 color:red;
@@ -15,3 +10,85 @@ table{
 background-color:pink;
 color:blue;
 }
+---------------------------------------------------------
+body{
+background-color:pink;
+}
+-------------------------------------------------------
+body{
+background-color:pink;
+}
+h1.a{
+color:red;
+}
+h1.b{
+color:green;
+}
+table{
+color:blue;
+}
+--------------------------------------------------------
+body{
+background-color:pink;
+}
+h1.a{
+color:red;
+font-size:100px;
+}
+h1.b{
+color:green;
+font-size:80px;
+}
+table{
+color:blue;
+font-size:50px;
+}
+-----------------------------------------------------------------
+body{
+background-color:pink;
+}
+h1.a{
+background-color:orange;
+color:red;
+}
+h1.b{
+background-color:orange;
+color:green;
+}
+table{
+background-color:orange;
+color:blue;
+}
+-------------------------------------------------------------------------------
+<html>
+<!-- Adding link in head in html code -->
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<title>Registration Page</title>
+<body>
+<!-- <h1>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Student Registration Form</h1> -->
+<h1 class="a" style="text-align:center;">Student Registration Form</h1>
+<h1 class="b" style="text-align:center;">Details</h1>
+<form method="post">
+<table align="center">
+<tr><td>Name of the student:</td><td><input type="text" name="student"><br></td></tr>
+<tr><td>Reg no:</td><td><input type="text" name="regno"><br></td></tr>
+<tr><td>Email ID:</td><td><input type="text" name="email"><br></td></tr>
+<tr><td>Favourite Game:</td><td><input type="checkbox" name="game1" value="cricket"><label for="game1"> Cricket</label><input type="checkbox" name="game2" value="football"><label for="game2"> Football</label><input type="checkbox" name="game3" value="chess"><label for="game3"> Chess</label><br></td></tr>
+<tr><td>Gender:</td><td><input type="radio" name="gender" value="male"><label for="male">Male</label><input type="radio" name="gender value=""female"><label for="female">Female</label><br></td></tr>
+<tr><td>Favourite Subjects:</td><td><label for="subject">Choose a favourite subject:</label>
+<select name="subject" id="subject">
+  <option value="Select">Select</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="Python">Python</option></select><br></td></tr>
+<tr><td>Address:</td><td><textarea name="address" form="addressform"></textarea><br></td></tr>
+<tr><td><th><input type="submit" value="Register"></th></td></tr>
+<!-- <tr><td>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <input type="submit" value="Register"></td></tr> -->
+<!-- &emsp; :- tab space -->
+</table>
+</form>
+</body>
+</html>
