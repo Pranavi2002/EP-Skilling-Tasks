@@ -1,0 +1,17 @@
+body{
+background-color:pink;
+}
+
+----------------------------------------------------------------
+h1.a{
+background-color:yellow;
+color:red;
+}
+h1.b{
+background-color:orange;
+color:green;
+}
+table{
+background-color:pink;
+color:blue;
+}
