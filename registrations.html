@@ -1,4 +1,3 @@
-<!-- Registration Page using JavaScript -->
 <html>
 <head>
 <title>Registration Form</title>
@@ -60,6 +59,13 @@ if (f1.subject.selectedIndex==0)
 {
 alert("Please choose a subject");
 }
+var a = document.f1.address.value;
+if(a=="")
+{
+alert("Please Enter Your Details Here");
+document.form.address.focus();
+return false;
+}
 }
 </script>
 </head>
@@ -81,7 +87,7 @@ alert("Please choose a subject");
   <option value="C++">C++</option>
   <option value="Java">Java</option>
   <option value="Python">Python</option></select><br></td></tr>
-<tr><td>Address:</td><td><textarea name="address" form="addressform"></textarea><br></td></tr>
+<tr><td>Address:</td><td><textarea name="address"></textarea><br></td></tr>
 <tr><td><th><input type="submit" value="Register"></th></td></tr>
 </table>
 </form>
