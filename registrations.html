@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Registration Form</title>
+<script>
+function Validation()
+{
+var user=document.f1.student.value;
+var regno=document.f1.regno.value;
+var password=document.f1.password.value;
+var email=document.f1.email.value;
+if(user==null|| user=="")
+{
+alert("Enter the username properly");
+}
+else if(user.length <8)
+{
+alert("Enter the username properly");
+}
+if(regno==null|| regno=="")
+{
+alert("Enter the registration number properly");
+}
+else if(regno.length <8)
+{
+alert("Enter the registration number properly");
+}
+if(password==null||password=="")
+{
+alert("Password is empty");
+}
+else if(password.length<8)
+{
+alert("Password should contain minimum 8 characters");
+}
+var at=email.indexOf('@');
+var dot=email.lastIndexOf('.');
+var len=email.length;
+if((parseInt(dot)-parseInt(at))==1)
+{
+alert("Enter Valid EmailID");
+}
+else if((parseInt(len)-parseInt(dot))<2)
+{
+alert("Enter Valid EmailID");
+}
+else if(at==0 || dot==0)
+{
+alert("Enter valid emailID");
+}
+if ( ( f1.game[0].checked == false ) && ( f1.game[1].checked == false ) && (f1.game[2].checked == false ))
+{
+alert ( "Please choose your favourite game: Cricket or Football or Chess" );
+}
+if ( ( f1.gender[0].checked == false ) && ( f1.gender[1].checked == false ) )
+{
+alert ( "Please choose your Gender: Male or Female" );
+}
+if (f1.subject.selectedIndex==0)
+{
+alert("Please choose a subject");
+}
+}
+</script>
+</head>
+<body>
+<h1 class="a" style="text-align:center;">Student Registration Form</h1>
+<h1 class="b" style="text-align:center;">Details</h1>
+<form method="post" name="f1" onSubmit="Validation()">
+<table align="center">
+<tr><td>Name of the student:</td><td><input type="text" name="student"><br></td></tr>
+<tr><td>Reg no:</td><td><input type="text" name="regno"><br></td></tr>
+<tr><td>Password:</td><td><input type="password" name="password"><br></td></tr>
+<tr><td>Email ID:</td><td><input type="text" name="email"><br></td></tr>
+<tr><td>Favourite Game:</td><td><input type="checkbox" name="game" value="cricket"> Cricket</label><input type="checkbox" name="game" value="football"> Football</label><input type="checkbox" name="game" value="chess"> Chess</label><br></td></tr>
+<tr><td>Gender:</td><td><input type="radio" name="gender" value="male"><label for="male">Male</label><input type="radio" name="gender" value="female"><label for="female">Female</label><br></td></tr>
+<tr><td>Favourite Subjects:</td><td><label for="subject">Choose a favourite subject:</label>
+<select name="subject" id="subject">
+  <option value="Select">Select</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="Python">Python</option></select><br></td></tr>
+<tr><td>Address:</td><td><textarea name="address" form="addressform"></textarea><br></td></tr>
+<tr><td><th><input type="submit" value="Register"></th></td></tr>
+</table>
+</form>
+</body>
+</html>
