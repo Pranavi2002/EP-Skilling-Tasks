@@ -1,0 +1,36 @@
+<html>
+<head>
+<script>
+function Validation()
+{
+var user=document.f1.a.value;
+var password=document.f1.b.value;
+var len1=user.length;
+var len2=password.length;
+if(user==null|| user=="")
+{
+alert("Enter the username properly");
+}
+else if(password==null || password=="")
+{
+alert("Password should not be null");
+}
+else if(len1 < 8 || len2 < 8)
+{
+alert("User name and password should be of minimum 8 characters");
+}
+else if(user == password)
+{
+alert("Welcome with the user name");
+}
+}
+</script>
+</head>
+<body>
+<form name="f1" onSubmit="Validation()">
+User Name<input type="text" name="a"><br>
+Password<input type="text" name="b"><br>
+<input type="submit" value="Login">
+</form>
+</body>
+</html>
