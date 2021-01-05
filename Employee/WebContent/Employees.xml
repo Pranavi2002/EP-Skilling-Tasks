@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Employees SYSTEM "Employees.dtd">
+<?xml-stylesheet type="text/xsl" href="Employees.xsl"?>
+<Employees>
+	<employee eid="a">
+		<name> Karthik </name>
+		<emailid> k@c.c </emailid>
+	</employee>
+	<employee eid="b">
+		<name> Naveen </name>
+		<emailid> n@c.c </emailid>
+	</employee>
+</Employees>
