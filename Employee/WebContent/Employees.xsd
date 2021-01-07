@@ -1,0 +1,35 @@
+<!-- This is my Employees.xsl file -->
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="Employees">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employee" minOccurs="0"
+					maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" />
+							<xs:element name="emailid" type="xs:string" />
+						</xs:sequence>
+						<xs:attribute name="eid" type="xs:string"
+							use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+<!-- this is my Employees.xml file -->
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Employees.xsl"?>
+<Employees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Employees.xsd">
+	<employee eid="a">
+		<name> Karthik </name>
+		<emailid> k@c.c </emailid>
+	</employee>
+	<employee eid="b">
+		<name> Naveen </name>
+		<emailid> n@c.c </emailid>
+	</employee>
+</Employees>
