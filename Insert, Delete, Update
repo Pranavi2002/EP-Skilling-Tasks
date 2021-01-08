@@ -1,0 +1,32 @@
+create schema EP;
+use EP;
+show tables;
+create table Employees(eid int,empname varchar(25),empemail varchar(25));
+insert into Employees values  
+      ( 1, 'Pranavi', 'p@c.c'), 
+      (2,'Manaswi', 'm@c.c'), 
+      (3, 'Tejasvi', 't@c.c'), 
+      (4, 'Chaitanya', 'ch@c.c'), 
+      (5, 'Roshini', 'r@c.c');
+update Employees set empname='Sindhu' where eid=5;
+update Employees set empemail='s@c.c' where eid=5;
+select * from Employees;
+delete from Employees where eid=5;
+select * from Employees;
+alter table Employees add (dept varchar(5));
+update Employees set dept='CSE' where eid=1;
+update Employees set dept='ECE' where eid=2;
+update Employees set dept='ME' where eid=3;
+update Employees set dept='CSE' where eid=4;
+select * from Employees;
+create table Student(sid int primary key , sname varchar(20), smail varchar(20), smarks int, sclass int);
+insert into Student values
+        (1,'Pranavi', 'p@c.c', 99, 10),
+        (2, 'Manaswi', 'm@c.c', 98, 9),
+        (3, 'Tejasvi', 't@c.c', 95, 9),
+        (4, 'Chaitanya', 'ch@c.c', 90, 7),
+        (5, 'Roshini', 'r@c.c', 81, 7);
+update Student set smail='d@c.c' where sid=5;
+select * from Student;
+delete from Student where sid=5;
+select * from Student;
