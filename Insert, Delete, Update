@@ -1,4 +1,4 @@
-create schema EP;
+create database EP;
 use EP;
 show tables;
 create table Employees(eid int,empname varchar(25),empemail varchar(25));
