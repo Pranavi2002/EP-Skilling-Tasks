@@ -1,0 +1,164 @@
+index.html :
+--------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="StudentDetails" method="post">
+Student regno <input type="text" name="no"><br>
+Student name <input type="text" name="name"><br>
+Student email <input type="email" name="email"><br>
+<input type="submit">
+</form>
+</body>
+</html>
+------------------------------
+StudentDetails.java :
+------------------------------
+package com.klu.bean;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.klu.DAO.StudentDAO;
+
+/**
+ * Servlet implementation class StudentDetails
+ */
+public class StudentDetails extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String regno = request.getParameter("no");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		StudentBean sb = new StudentBean();
+		sb.setRegno(regno);
+		sb.setName(name);
+		sb.setEmail(email);
+		StudentDAO sdao = new StudentDAO();
+		ServletConfig sc = getServletConfig();
+		try {
+			int i = sdao.StudentInsert(sb, sc.getInitParameter("sqldriver"),sc.getInitParameter("sqldburl"),sc.getInitParameter("sqluser"),sc.getInitParameter("sqlpassword"));
+			if(i>0) {
+				RequestDispatcher rd = request.getRequestDispatcher("view.jsp");
+				request.setAttribute("bean",sb);
+				rd.forward(request,response);
+			}
+			else {
+				RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+				rd.include(request,response);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
+------------------------------------------------------
+StudentBean.java :
+------------------------------------------------------
+package com.klu.bean;
+
+public class StudentBean {
+private String regno;
+private String name;
+private String email;
+public String getRegno() {
+	return regno;
+}
+public void setRegno(String regno) {
+	this.regno = regno;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+}
+-----------------------------------------------------
+DBUtil.java :
+-----------------------------------------------------
+package com.klu.DBUtil;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.klu.bean.StudentBean;
+
+public class DBConn {
+public static Connection getConnection(StudentBean sb,String driver, String dburl, String username, String password) throws SQLException, ClassNotFoundException
+{
+	Class.forName(driver);
+	Connection con = DriverManager.getConnection(dburl, username, password);
+	return con;	
+}
+}
+---------------------------------------------------------
+StudentDAo.java :
+---------------------------------------------------------
+package com.klu.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.klu.DBUtil.DBConn;
+import com.klu.bean.StudentBean;
+
+public class StudentDAO {
+public int StudentInsert(StudentBean sb,String driver, String dburl, String username, String password) throws ClassNotFoundException, SQLException
+{
+	Connection con = DBConn.getConnection(sb,driver, dburl, username, password);
+	String sql = "insert into detailsofstudent values(?,?,?)";
+	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setString(1,sb.getRegno());
+	ps.setString(2,sb.getName());
+	ps.setString(3,sb.getEmail());
+	int i = ps.executeUpdate();
+	return i;
+}
+}
+-----------------------------------------------------------------
+view.jsp :
+-----------------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="com.klu.bean.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% StudentBean sb = (StudentBean)request.getAttribute("bean"); %>
+<h1 align="center"><% out.print("Student Details"); %></h1>
+<table align="center" border="1">
+<tr><th> Student regno </th><th> Student name </th><th> Student email</th></tr>
+<tr><td><%=sb.getRegno() %></td><td><%=sb.getName() %></td><td><%=sb.getEmail() %></td></tr>
+</table>
+</body>
+</html>
